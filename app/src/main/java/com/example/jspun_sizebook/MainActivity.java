@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 import static com.example.jspun_sizebook.R.id.clear;
-import static com.example.jspun_sizebook.R.id.recordlist;
+import static com.example.jspun_sizebook.R.id.recordList;
 import static com.example.jspun_sizebook.R.id.save;
 
 public class MainActivity extends AppCompatActivity {
