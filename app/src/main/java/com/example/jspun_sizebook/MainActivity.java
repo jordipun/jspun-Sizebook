@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button saveButton= (Button) findViewById(save);
         Button clearButton= (Button) findViewById(clear);
-        recordlist = (ListView) findViewById(R.id.recordlist);
+        recordList = (ListView) findViewById(R.id.recordList);
+
     }
 
 
