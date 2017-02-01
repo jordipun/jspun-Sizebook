@@ -17,7 +17,7 @@
         android:id="@+id/textView" />
 
     <ListView
-        android:id="@+id/oldTweetsList"
+        android:id="@+id/recordlist"
         android:layout_width="fill_parent"
         android:layout_height="263dp"
         android:layout_weight="1"
