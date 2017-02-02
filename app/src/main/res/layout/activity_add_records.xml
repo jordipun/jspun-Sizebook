@@ -131,7 +131,7 @@
         android:id="@+id/save"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/date"
-        android:textSize="10sp" />
+        android:textSize="11sp" />
 
     <EditText
         android:layout_width="wrap_content"
