@@ -31,20 +31,11 @@
     </ListView>
 
     <Button
-        android:id="@+id/deletez"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
         android:id="@+id/addnew"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add"
-        android:layout_above="@+id/deletez"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>

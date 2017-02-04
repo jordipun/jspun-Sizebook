@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText34"
+        android:id="@+id/editname"
         android:layout_alignBaseline="@+id/textView5"
         android:layout_alignBottom="@+id/textView5"
         android:layout_toRightOf="@+id/textView5"
@@ -52,8 +52,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="25sp"
         android:layout_alignBottom="@+id/date"
-        android:layout_alignLeft="@+id/editText34"
-        android:layout_alignStart="@+id/editText34"
+        android:layout_alignLeft="@+id/editname"
+        android:layout_alignStart="@+id/editname"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp" />
 
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/date"
         android:onClick="datePicker"
-        android:layout_below="@+id/editText34"
+        android:layout_below="@+id/editname"
         android:layout_toRightOf="@+id/displaydate"
         android:layout_toEndOf="@+id/displaydate"
         android:layout_marginLeft="14dp"
@@ -124,34 +124,27 @@
         android:layout_alignRight="@+id/displaydate"
         android:layout_alignEnd="@+id/displaydate" />
 
-    <Button
-        android:text="Save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/save"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/date"
-        android:textSize="11sp" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText43"
+        android:id="@+id/editcom"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/save"
-        android:layout_below="@+id/textView13" />
+        android:layout_below="@+id/textView13"
+        android:layout_alignRight="@+id/textView13"
+        android:layout_alignEnd="@+id/textView13" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText46"
+        android:id="@+id/editbust"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/textView8"
@@ -166,7 +159,7 @@
         android:layout_below="@+id/textView8"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/editText47"
+        android:id="@+id/editchest"
         android:layout_toRightOf="@+id/textView8"
         android:layout_toEndOf="@+id/textView8" />
 
@@ -175,10 +168,10 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:layout_below="@+id/editText47"
+        android:layout_below="@+id/editchest"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/editText48"
+        android:id="@+id/editw"
         android:layout_toRightOf="@+id/textView10"
         android:layout_toEndOf="@+id/textView10" />
 
@@ -187,10 +180,10 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:layout_below="@+id/editText49"
+        android:layout_below="@+id/edithip"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/editText50"
+        android:id="@+id/editin"
         android:layout_toEndOf="@+id/textView11"
         android:layout_toRightOf="@+id/textView11" />
 
@@ -199,7 +192,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText49"
+        android:id="@+id/edithip"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/textView11"
@@ -213,11 +206,11 @@
         android:id="@+id/textView12"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="20sp"
-        android:layout_alignBottom="@+id/editText50"
+        android:layout_alignBottom="@+id/editin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/editText50"
-        android:layout_toStartOf="@+id/editText50" />
+        android:layout_toLeftOf="@+id/editin"
+        android:layout_toStartOf="@+id/editin" />
 
     <TextView
         android:text="Waist(Inches):"
@@ -226,12 +219,12 @@
         android:id="@+id/textView10"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="20sp"
-        android:layout_alignBaseline="@+id/editText48"
-        android:layout_alignBottom="@+id/editText48"
+        android:layout_alignBaseline="@+id/editw"
+        android:layout_alignBottom="@+id/editw"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/editText47"
-        android:layout_toStartOf="@+id/editText47" />
+        android:layout_toLeftOf="@+id/editchest"
+        android:layout_toStartOf="@+id/editchest" />
 
     <TextView
         android:text="Hip(Inches):"
@@ -240,23 +233,46 @@
         android:id="@+id/textView11"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="20sp"
-        android:layout_below="@+id/editText48"
+        android:layout_below="@+id/editw"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="11dp"
-        android:layout_toLeftOf="@+id/editText48"
-        android:layout_toStartOf="@+id/editText48" />
+        android:layout_toLeftOf="@+id/editw"
+        android:layout_toStartOf="@+id/editw" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText45"
-        android:layout_above="@+id/editText46"
+        android:id="@+id/editneck"
+        android:layout_above="@+id/editbust"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/editText46"
-        android:layout_alignStart="@+id/editText46" />
+        android:layout_alignLeft="@+id/editbust"
+        android:layout_alignStart="@+id/editbust" />
+
+    <Button
+        android:text="Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/save"
+        android:textSize="15sp"
+        android:layout_below="@+id/textView13"
+        android:layout_toRightOf="@+id/textView13"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/delete" />
+
+    <Button
+        android:text="Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/delete"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/editcom"
+        android:layout_toEndOf="@+id/editcom" />
 
 </RelativeLayout>
