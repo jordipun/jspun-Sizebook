@@ -2,6 +2,7 @@ package com.example.jspun_sizebook;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.Date;
 
 import static android.R.attr.value;
 import static android.provider.Telephony.Mms.Part.FILENAME;
@@ -137,6 +139,8 @@ public class viewedit extends AppCompatActivity {
             //2017-01-28
             @Override
             public void onClick(View v){
+
+
                 new DatePickerDialog(viewedit.this,listener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
 
 
@@ -210,6 +214,8 @@ public class viewedit extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener(){
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayofMonth){
+
+
             display.setText(year + "/" + (monthOfYear+1) + "/" + dayofMonth);
 
         }
