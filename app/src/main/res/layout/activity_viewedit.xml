@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:text="Name:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView20"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp" />
+
+    <TextView
+        android:text="Date:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView20"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp"
+        android:id="@+id/textView21"
+        android:layout_alignRight="@+id/textView20"
+        android:layout_alignEnd="@+id/textView20"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp" />
+
+    <TextView
+        android:text="Comment:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView28"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp"
+        android:layout_below="@+id/textView27"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="13dp" />
+
+    <TextView
+        android:text="Neck(Inches):"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView22"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp"
+        android:layout_below="@+id/textView21"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="26dp" />
+
+    <TextView
+        android:text="Bust(Inches):"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView23"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/textView22"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Chest(Inches):"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView24"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp"
+        android:layout_below="@+id/textView23"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:text="Waist(Inches):"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView25"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/textView24"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Inseam(Inches):"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:id="@+id/textView27"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp"
+        tools:text="Inseam(Inches)"
+        android:layout_below="@+id/textView26"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Hip(Inches):"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView26"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp"
+        android:layout_below="@+id/textView25"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:text="Select -->"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView29"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/textView21"
+        android:layout_toRightOf="@+id/textView21"
+        android:layout_toEndOf="@+id/textView21"
+        android:layout_alignTop="@+id/textView21" />
+
+    <Button
+        android:text="Select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/datenew"
+        android:layout_alignBaseline="@+id/textView29"
+        android:layout_alignBottom="@+id/textView29"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/editText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_above="@+id/textView23"
+        android:layout_toRightOf="@+id/textView22"
+        android:layout_toEndOf="@+id/textView22"
+        android:id="@+id/editText2"
+        tools:inputType="number"
+        android:inputType="number" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@+id/textView22"
+        android:layout_toRightOf="@+id/textView22"
+        android:layout_toEndOf="@+id/textView22"
+        android:id="@+id/editText3"
+        android:inputType="number" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/editText3"
+        android:layout_toRightOf="@+id/textView24"
+        android:layout_toEndOf="@+id/textView24"
+        android:id="@+id/editText4" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_alignTop="@+id/textView25"
+        android:layout_alignLeft="@+id/editText4"
+        android:layout_alignStart="@+id/editText4"
+        android:id="@+id/editwnew"
+        android:inputType="number" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/textView25"
+        android:layout_alignRight="@+id/editText3"
+        android:layout_alignEnd="@+id/editText3"
+        android:id="@+id/edithipnew" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_alignBottom="@+id/textView27"
+        android:layout_toRightOf="@+id/textView27"
+        android:layout_toEndOf="@+id/textView27"
+        android:id="@+id/editinnew"
+        android:inputType="number" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/textView28"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/editcom1"
+        android:layout_alignParentBottom="true" />
+
+    <Button
+        android:text="Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="59dp"
+        android:id="@+id/newsave"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/editcom1"
+        android:layout_toEndOf="@+id/editcom1" />
+
+    <Button
+        android:text="Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/delete"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/editcom1"
+        android:layout_toEndOf="@+id/editcom1" />
+</RelativeLayout>

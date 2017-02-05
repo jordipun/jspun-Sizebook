@@ -37,7 +37,7 @@
         android:text="Date:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/displaydate"
+        android:layout_alignBottom="@+id/displaydatnew"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/textView6"
@@ -48,7 +48,7 @@
         android:text="Select ->>"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/displaydate"
+        android:id="@+id/displaydatnew"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="25sp"
         android:layout_alignBottom="@+id/date"
@@ -64,8 +64,8 @@
         android:id="@+id/date"
         android:onClick="datePicker"
         android:layout_below="@+id/editname"
-        android:layout_toRightOf="@+id/displaydate"
-        android:layout_toEndOf="@+id/displaydate"
+        android:layout_toRightOf="@+id/displaydatnew"
+        android:layout_toEndOf="@+id/displaydatnew"
         android:layout_marginLeft="14dp"
         android:layout_marginStart="14dp" />
 
@@ -121,8 +121,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="11dp"
-        android:layout_alignRight="@+id/displaydate"
-        android:layout_alignEnd="@+id/displaydate" />
+        android:layout_alignRight="@+id/displaydatnew"
+        android:layout_alignEnd="@+id/displaydatnew" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -134,10 +134,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/save"
-        android:layout_below="@+id/textView13"
-        android:layout_alignRight="@+id/textView13"
-        android:layout_alignEnd="@+id/textView13" />
+        android:layout_toStartOf="@+id/editin"
+        android:layout_toLeftOf="@+id/editin"
+        android:layout_below="@+id/textView13" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -180,37 +179,12 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:layout_below="@+id/edithip"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/editin"
-        android:layout_toEndOf="@+id/textView11"
-        android:layout_toRightOf="@+id/textView11" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
         android:id="@+id/edithip"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/textView11"
         android:layout_toEndOf="@+id/textView11"
         android:layout_alignBottom="@+id/textView11" />
-
-    <TextView
-        android:text="Inseam(Inches):"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView12"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="20sp"
-        android:layout_alignBottom="@+id/editin"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/editin"
-        android:layout_toStartOf="@+id/editin" />
 
     <TextView
         android:text="Waist(Inches):"
@@ -258,21 +232,35 @@
         android:layout_height="wrap_content"
         android:id="@+id/save"
         android:textSize="15sp"
-        android:layout_below="@+id/textView13"
-        android:layout_toRightOf="@+id/textView13"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/delete" />
-
-    <Button
-        android:text="Delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/delete"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/editcom"
-        android:layout_toEndOf="@+id/editcom" />
+        android:layout_alignLeft="@+id/date"
+        android:layout_alignStart="@+id/date" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editin"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/edithip"
+        android:layout_toRightOf="@+id/textView11"
+        android:layout_toEndOf="@+id/textView11" />
+
+    <TextView
+        android:text="Inseam(Inches):"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView12"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/editin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/edithip"
+        android:layout_toStartOf="@+id/edithip" />
 
 </RelativeLayout>

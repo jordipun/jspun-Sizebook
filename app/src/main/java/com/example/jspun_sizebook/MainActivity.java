@@ -1,16 +1,29 @@
 package com.example.jspun_sizebook;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
-
-
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import static android.provider.Telephony.Mms.Part.FILENAME;
 import static com.example.jspun_sizebook.R.id.addnew;
 
 
@@ -20,9 +33,10 @@ import static com.example.jspun_sizebook.R.id.addnew;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private ListView recordList;
-    private ArrayAdapter<Records> adapter;
-    private ArrayList<Records> objectlist;
+    public static ListView recordList;
+    public static ArrayAdapter<Records> adapter;
+    public static ArrayList<Records> objectlist;
+
 
 
 
@@ -33,9 +47,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        objectlist = new ArrayList<Records>();
         recordList = (ListView) findViewById(R.id.recordList);
         init();
+        recordList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent viewintent = new Intent(MainActivity.this, viewedit.class);
+                viewintent.putExtra("position_id", position);
+                startActivity(viewintent);
+
+
+
+
+
+            }
+        });
+
 
 
 
@@ -59,13 +88,43 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onStart(){
+    protected void onStart() {
         super.onStart();
-        
-        adapter = new ArrayAdapter<Records>(this, R.layout.record_list,objectlist);
+        loadFromFile();
+
+
+
+        adapter = new ArrayAdapter<Records>(this, R.layout.record_list, objectlist);
         recordList.setAdapter(adapter);
+
     }
 
 
+
+
+    private void loadFromFile() {
+        try {
+            FileInputStream fis = openFileInput(FILENAME);
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+
+            Gson gson = new Gson();
+
+            Type listType = new TypeToken<ArrayList<Records>>(){}.getType();
+
+            objectlist = gson.fromJson(in,listType);
+
+            //taken from http://stackoverflow.com/questions/12384064/gson-convert-from-json-to-a-typed-arraylistt
+            //2017-01-24 18:19
+
+        } catch (FileNotFoundException e) {
+            objectlist= new ArrayList<Records>();
+            // TODO Auto-generated catch block
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        }
+
+    }
 
 }

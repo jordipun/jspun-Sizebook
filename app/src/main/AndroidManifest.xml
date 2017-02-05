@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddRecords"></activity>
+        <activity android:name=".AddRecords" />
+        <activity android:name=".viewedit"></activity>
     </application>
 
 </manifest>
