@@ -23,20 +23,59 @@ import static android.R.attr.value;
 import static android.provider.Telephony.Mms.Part.FILENAME;
 import static com.example.jspun_sizebook.MainActivity.objectlist;
 
+/**
+ * The type Viewedit.
+ */
 public class viewedit extends AppCompatActivity {
 
 
+    /**
+     * The S.
+     */
     Integer s;
+    /**
+     * The Record.
+     */
     Records record;
+    /**
+     * The Calendar.
+     */
     Calendar calendar = Calendar.getInstance();
+    /**
+     * The Display.
+     */
     TextView display;
+    /**
+     * The Uname.
+     */
     EditText uname;
+    /**
+     * The Uneck.
+     */
     EditText uneck;
+    /**
+     * The Uwaist.
+     */
     EditText uwaist;
+    /**
+     * The Uhip.
+     */
     EditText uhip;
+    /**
+     * The Uchest.
+     */
     EditText uchest;
+    /**
+     * The Ucomment.
+     */
     EditText ucomment;
+    /**
+     * The Ubust.
+     */
     EditText ubust;
+    /**
+     * The Uinseam.
+     */
     EditText uinseam;
 
 
@@ -135,12 +174,9 @@ public class viewedit extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
+    /**
+     * The Listener.
+     */
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener(){
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayofMonth){

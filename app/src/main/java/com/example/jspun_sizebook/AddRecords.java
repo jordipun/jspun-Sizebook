@@ -28,25 +28,52 @@ import static com.example.jspun_sizebook.MainActivity.objectlist;
  */
 public class AddRecords extends AppCompatActivity{
     /**
-     * The Calendar.
+     * The Calendar object.
      */
     Calendar calendar = Calendar.getInstance();
     /**
      * The Display.
      */
     TextView display;
+    /**
+     * The Uname.
+     */
     EditText uname;
+    /**
+     * The Uneck.
+     */
     EditText uneck;
+    /**
+     * The Uwaist.
+     */
     EditText uwaist;
+    /**
+     * The Uhip.
+     */
     EditText uhip;
+    /**
+     * The Uchest.
+     */
     EditText uchest;
+    /**
+     * The Ucomment.
+     */
     EditText ucomment;
+    /**
+     * The Ubust.
+     */
     EditText ubust;
+    /**
+     * The Uinseam.
+     */
     EditText uinseam;
 
 
-
-
+    /**
+     *The following onCreate method initializes all EditText and TextView from the layout
+     * Also sets up the buttons for use
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +93,10 @@ public class AddRecords extends AppCompatActivity{
         Button saveButton = (Button) findViewById(R.id.save);
         Button dateButton = (Button) findViewById(R.id.date);
 
-
+        /**
+         * Sets up the datebutton for onclick
+         * Retrieves the user selected dates and sends to listener
+         */
         dateButton.setOnClickListener(new View.OnClickListener(){
             //Taken from https://developer.android.com/guide/topics/ui/controls/pickers.html
             //2017-01-28
@@ -77,7 +107,13 @@ public class AddRecords extends AppCompatActivity{
 
             }
         });
-
+        /**
+         * Sets up saveButton for onclick
+         * Creates a record object and sets the values in the object if the user enters a name
+         * FLAW ALERT: When the user enters a line of spaces instead, no error will occur as a space
+         * is still considered a character.
+         * Adds this new object into the list of arrays to be added to the listview in Main
+         */
         saveButton.setOnClickListener(new View.OnClickListener() {
 
 
@@ -85,13 +121,17 @@ public class AddRecords extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Records record = new Records(uname.getText().toString());
-
+                /**
+                 * Checks if the user leaves the name empty
+                 */
                 if (uname.getText().length()==0){
                     uname.setError("Please Enter a Name!");
                 }else {
+                    /**
+                     * Sets the corresponding values to the object
+                     */
+
                     record.setName(uname.getText().toString());
-
-
                     record.setBust(ubust.getText().toString());
                     record.setChest(uchest.getText().toString());
                     record.setComment(ucomment.getText().toString());
@@ -101,6 +141,10 @@ public class AddRecords extends AppCompatActivity{
                     record.setWaist(uwaist.getText().toString());
                     record.setDate(display.getText().toString());
                     objectlist.add(record);
+
+                    /**
+                     * 
+                     */
                     saveInFile();
                     finish();
 
@@ -113,11 +157,8 @@ public class AddRecords extends AppCompatActivity{
     }
 
 
-
-
     /**
-     * The Listener for setting the date time to display on textview
-     *
+     * The Listener.
      */
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener(){
         @Override

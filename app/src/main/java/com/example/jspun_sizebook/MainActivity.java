@@ -27,14 +27,22 @@ import static android.provider.Telephony.Mms.Part.FILENAME;
 import static com.example.jspun_sizebook.R.id.addnew;
 
 
-
 /**
  * The type Main activity.
  */
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * The constant recordList.
+     */
     public static ListView recordList;
+    /**
+     * The Adapter.
+     */
     public static ArrayAdapter<Records> adapter;
+    /**
+     * The Objectlist.
+     */
     public static ArrayList<Records> objectlist;
 
 
@@ -72,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Initialzes the buttons and sets the activity link
+     * Init.
      */
     public void init() {
         Button addButton= (Button) findViewById(addnew);
