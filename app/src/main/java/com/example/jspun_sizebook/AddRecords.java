@@ -128,7 +128,7 @@ public class AddRecords extends AppCompatActivity{
                     uname.setError("Please Enter a Name!");
                 }else {
                     /**
-                     * Sets the corresponding values to the object
+                     * Sets the corresponding values to the object and adds the object to the array
                      */
 
                     record.setName(uname.getText().toString());
@@ -143,9 +143,14 @@ public class AddRecords extends AppCompatActivity{
                     objectlist.add(record);
 
                     /**
-                     * 
+                     * Saves the object in the disk
+                     *ie. so the array doesnt get cleared with the object upon relaunch
                      */
                     saveInFile();
+
+                    /**
+                     * end the activity and return to main
+                     */
                     finish();
 
 
@@ -159,6 +164,7 @@ public class AddRecords extends AppCompatActivity{
 
     /**
      * The Listener.
+     * Sets the text on textview to the user selected date
      */
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener(){
         @Override
@@ -168,6 +174,10 @@ public class AddRecords extends AppCompatActivity{
     }
 };
 
+    /**
+     * Method for saving the object into the disk
+     * taken from Lonelytwitter lab
+     */
     private void saveInFile() {
         try {
             FileOutputStream fos = openFileOutput(FILENAME,

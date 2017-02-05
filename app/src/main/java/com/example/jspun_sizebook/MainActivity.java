@@ -1,6 +1,6 @@
 package com.example.jspun_sizebook;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,13 +12,10 @@ import android.widget.ListView;
 
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import com.google.gson.Gson;
@@ -46,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Records> objectlist;
 
 
-
-
-
-
-
+    /**
+     * OnCreate creates the initial object list and listview
+     * init method to initialize button
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
         objectlist = new ArrayList<Records>();
         recordList = (ListView) findViewById(R.id.recordList);
         init();
+
+        /**
+         * Initizalze item click and send the position of the object from the list to the activity
+         */
         recordList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Init.
+     * Initizalized add button clicker
      */
     public void init() {
         Button addButton= (Button) findViewById(addnew);
@@ -94,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Load from file ensures persistence in the case of the app terminating
+     * also initialzes the adapter
+     */
 
     @Override
     protected void onStart() {
@@ -108,7 +113,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * method for loadfromfile taken from lonelytwitter to ensure persistence and data content
+     * in the case of the app closing
+     */
 
     private void loadFromFile() {
         try {

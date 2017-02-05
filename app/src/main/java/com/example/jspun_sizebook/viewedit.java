@@ -78,6 +78,11 @@ public class viewedit extends AppCompatActivity {
      */
     EditText uinseam;
 
+    /**
+     * receives the position id from main activity and grabs the object corresponding to the index
+     * of the list
+     * @param savedInstanceState
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +95,9 @@ public class viewedit extends AppCompatActivity {
         record = objectlist.get(s);
 
 
-
+        /**
+         * redine the variables
+         */
         display = (TextView)findViewById(R.id.textView29);
         uname = (EditText) findViewById(R.id.editText);
         uneck = (EditText) findViewById(R.id.editText2);
@@ -101,7 +108,10 @@ public class viewedit extends AppCompatActivity {
         uinseam = (EditText) findViewById(R.id.editinnew);
         ubust = (EditText)findViewById(R.id.editText3);
 
-
+        /**
+         * sets the edit text boxes to the previous defined sets from the object to enable view/edit
+         *
+         */
 
         uname.setText(record.getName());
         uneck.setText(record.getNeck());
@@ -113,11 +123,15 @@ public class viewedit extends AppCompatActivity {
         uwaist.setText(record.getWaist());
         display.setText(record.getDate());
 
-
-        final Button saveButton = (Button) findViewById(R.id.newsave);
+        /**
+         * initialzes all the buttons
+         */
+        Button saveButton = (Button) findViewById(R.id.newsave);
         Button dateButton = (Button) findViewById(R.id.datenew);
         Button deleteButton = (Button) findViewById(R.id.delete);
-
+        /**
+         * set date clicker to recieve user date and pass to listener
+         */
         dateButton.setOnClickListener(new View.OnClickListener(){
             //Taken from https://developer.android.com/guide/topics/ui/controls/pickers.html
             //2017-01-28
@@ -129,7 +143,13 @@ public class viewedit extends AppCompatActivity {
             }
         });
 
-
+        /**
+         * Sets up saveButton for onclick
+         * Creates a record object and sets the values in the object if the user enters a name
+         * FLAW ALERT: When the user enters a line of spaces instead, no error will occur as a space
+         * is still considered a character.
+         * Adds this new object into the list of arrays to be added to the listview in Main
+         */
         saveButton.setOnClickListener(new View.OnClickListener() {
 
 
@@ -137,7 +157,9 @@ public class viewedit extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+                /**
+                 * Checks if the user leaves the name empty
+                 */
                 if (uname.getText().length()==0){
                     uname.setError("Please Enter a Name!");
                 }else {
@@ -152,6 +174,10 @@ public class viewedit extends AppCompatActivity {
                     record.setInseam(uinseam.getText().toString());
                     record.setWaist(uwaist.getText().toString());
                     record.setDate(display.getText().toString());
+                    /**
+                     * Saves the object in the disk
+                     *ie. so the array doesnt get cleared with the object upon relaunch
+                     */
                     saveInFile();
 
                     finish();
@@ -162,7 +188,11 @@ public class viewedit extends AppCompatActivity {
 
             }
         });
-
+        /**
+         * Set the delete button
+         * deletes the object from the list by providing the object as the parameter
+         * Save the changes and return to activity to ensure persistency
+         */
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,7 +205,7 @@ public class viewedit extends AppCompatActivity {
 
 
     /**
-     * The Listener.
+     * The Listener recieves user date and sets it in the textview
      */
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener(){
         @Override
@@ -185,6 +215,9 @@ public class viewedit extends AppCompatActivity {
         }
     };
 
+    /**
+     * taken from lonelytwitter and ensures persistency in the case of app termination
+     */
     private void saveInFile() {
         try {
             FileOutputStream fos = openFileOutput(FILENAME,

@@ -188,6 +188,11 @@ public class Records {
         this.comment = comment;
     }
 
+
+    /**
+     * sets the list name in listview
+     * @return
+     */
     @Override
     public String toString(){
         return name.toString();
