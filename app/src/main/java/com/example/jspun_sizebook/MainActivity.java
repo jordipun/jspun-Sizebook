@@ -41,7 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+      /**
+       * OnCreate creates the initial object list and listview
+       * init method to initialize button
+       * @param savedInstanceState
+       */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
         objectlist = new ArrayList<Records>();
         recordList = (ListView) findViewById(R.id.recordList);
         init();
+
+        /**
+         * Initizalze item click and send the position of the object from the list to the activity
+         */
         recordList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -86,7 +94,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * The method contains are loadfile method that maintains persistency in the case of the app terminating
+     * Sets up the adapter
+     */
     @Override
     protected void onStart() {
         super.onStart();
@@ -100,8 +111,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
+    /**
+     * taken from lonely twitter in the case of the app terminating, data persistence is ensured.
+     */
     private void loadFromFile() {
         try {
             FileInputStream fis = openFileInput(FILENAME);

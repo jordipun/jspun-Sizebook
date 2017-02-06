@@ -34,6 +34,10 @@ public class AddRecords extends AppCompatActivity{
     /**
      * The Display.
      */
+    /**
+     * Defining Edittext and objects
+     */
+    Records record;
     TextView display;
     EditText uname;
     EditText uneck;
@@ -45,8 +49,10 @@ public class AddRecords extends AppCompatActivity{
     EditText uinseam;
 
 
-
-
+    /**
+     * On create activity, the following variables are defined by their layout ids and the buttons are inititialized
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +72,9 @@ public class AddRecords extends AppCompatActivity{
         Button saveButton = (Button) findViewById(R.id.save);
         Button dateButton = (Button) findViewById(R.id.date);
 
-
+        /**
+         * Set up the datebutton to retrieve user date input
+         */
         dateButton.setOnClickListener(new View.OnClickListener(){
             //Taken from https://developer.android.com/guide/topics/ui/controls/pickers.html
             //2017-01-28
@@ -78,17 +86,25 @@ public class AddRecords extends AppCompatActivity{
             }
         });
 
+        /**
+         * Set up the save button for use
+         */
+
         saveButton.setOnClickListener(new View.OnClickListener() {
 
 
 
             @Override
             public void onClick(View v) {
-                Records record = new Records(uname.getText().toString());
+                record = new Records(uname.getText().toString());
 
                 if (uname.getText().length()==0){
                     uname.setError("Please Enter a Name!");
                 }else {
+                    /**
+                     * Sets the corresponding values to the object
+                     Sets the corresponding values to the object and adds the object to the array
+                     */
                     record.setName(uname.getText().toString());
 
 
@@ -101,6 +117,11 @@ public class AddRecords extends AppCompatActivity{
                     record.setWaist(uwaist.getText().toString());
                     record.setDate(display.getText().toString());
                     objectlist.add(record);
+                    /**
+                     *Finish the acivity and return to main
+                     * Saves the object in the disk
+                     * *ie. so the array doesnt get cleared with the object upon relaunch
+                     */
                     saveInFile();
                     finish();
 
@@ -127,6 +148,9 @@ public class AddRecords extends AppCompatActivity{
     }
 };
 
+    /**
+     * method taken from lonelytwitter to save files on to disk to preserve dependecny
+     */
     private void saveInFile() {
         try {
             FileOutputStream fos = openFileOutput(FILENAME,

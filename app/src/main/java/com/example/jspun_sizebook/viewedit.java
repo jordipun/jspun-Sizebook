@@ -23,23 +23,66 @@ import static android.R.attr.value;
 import static android.provider.Telephony.Mms.Part.FILENAME;
 import static com.example.jspun_sizebook.MainActivity.objectlist;
 
+/**
+ * The type Viewedit.
+ */
 public class viewedit extends AppCompatActivity {
 
 
+    /**
+     * The S.
+     */
     Integer s;
+    /**
+     * The Record.
+     */
     Records record;
+    /**
+     * The Calendar.
+     */
     Calendar calendar = Calendar.getInstance();
+    /**
+     * The Display.
+     */
     TextView display;
+    /**
+     * The Uname.
+     */
     EditText uname;
+    /**
+     * The Uneck.
+     */
     EditText uneck;
+    /**
+     * The Uwaist.
+     */
     EditText uwaist;
+    /**
+     * The Uhip.
+     */
     EditText uhip;
+    /**
+     * The Uchest.
+     */
     EditText uchest;
+    /**
+     * The Ucomment.
+     */
     EditText ucomment;
+    /**
+     * The Ubust.
+     */
     EditText ubust;
+    /**
+     * The Uinseam.
+     */
     EditText uinseam;
 
-
+    /**
+     * receives the position id from main activity and grabs the object corresponding to the index
+     * of the list
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +91,7 @@ public class viewedit extends AppCompatActivity {
         if (extras!= null){
              s = extras.getInt("position_id");
         }
+
         record = objectlist.get(s);
 
 
@@ -62,7 +106,9 @@ public class viewedit extends AppCompatActivity {
         uinseam = (EditText) findViewById(R.id.editinnew);
         ubust = (EditText)findViewById(R.id.editText3);
 
-
+/**
+ * Sets the values of the edittext for the user to edit
+ */
 
         uname.setText(record.getName());
         uneck.setText(record.getNeck());
@@ -74,11 +120,15 @@ public class viewedit extends AppCompatActivity {
         uwaist.setText(record.getWaist());
         display.setText(record.getDate());
 
-
-        final Button saveButton = (Button) findViewById(R.id.newsave);
+/**
+ * Initialzes the buttons for use
+ */
+        Button saveButton = (Button) findViewById(R.id.newsave);
         Button dateButton = (Button) findViewById(R.id.datenew);
         Button deleteButton = (Button) findViewById(R.id.delete);
-
+/**
+ * sets the date click to retrieve user input
+ */
         dateButton.setOnClickListener(new View.OnClickListener(){
             //Taken from https://developer.android.com/guide/topics/ui/controls/pickers.html
             //2017-01-28
@@ -89,7 +139,9 @@ public class viewedit extends AppCompatActivity {
 
             }
         });
-
+/**
+ * Sets the save button similar to ADDrecords
+ */
 
         saveButton.setOnClickListener(new View.OnClickListener() {
 
@@ -97,11 +149,18 @@ public class viewedit extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
+                /**
+                 * if the user does not input the name an error will occur and the record will not save
+                 * FLAW: If the user enters spaces instead of characters the method will still pass this as a valid input
+                 */
 
                 if (uname.getText().length()==0){
                     uname.setError("Please Enter a Name!");
                 }else {
+                    /**
+                     * Sets the corresponding values to the object
+                     Sets the corresponding values to the object and adds the object to the array
+                     */
                     record.setName(uname.getText().toString());
 
 
@@ -113,6 +172,11 @@ public class viewedit extends AppCompatActivity {
                     record.setInseam(uinseam.getText().toString());
                     record.setWaist(uwaist.getText().toString());
                     record.setDate(display.getText().toString());
+                    /**
+                     *Finish the acivity and return to main
+                     * Saves the object in the disk
+                     * *ie. so the array doesnt get cleared with the object upon relaunch
+                     */
                     saveInFile();
 
                     finish();
@@ -123,7 +187,11 @@ public class viewedit extends AppCompatActivity {
 
             }
         });
-
+/**
+ * Initializes the delete button
+ * The object is passed in the paramter for it to be deleted from the objectlist
+ * finishes the activity and returns to the main
+ */
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,12 +203,9 @@ public class viewedit extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
+    /**
+     * The Listener to retrieve the user info and display it in the textview
+     */
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener(){
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayofMonth){
@@ -149,6 +214,9 @@ public class viewedit extends AppCompatActivity {
         }
     };
 
+    /**
+     * Taken from lonely twitter to ensure persistence by saving the data onto the disk.
+     */
     private void saveInFile() {
         try {
             FileOutputStream fos = openFileOutput(FILENAME,
